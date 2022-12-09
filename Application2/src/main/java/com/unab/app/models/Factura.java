@@ -1,0 +1,111 @@
+package com.unab.app.models;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+@Entity
+@Table(name="factura")
+public class Factura implements Serializable {
+	
+	private static final long serialVersionUID=1L;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_factura")
+	private int id;
+	
+	@Column(name="descripcion")
+	private String descripcion;
+	
+	@Column(name="observacion")
+	private String observacion;
+	
+	@Column(name="create_at")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy-mm-dd")
+	private Date createAt;
+	
+	@Column(name="valorTotal")
+	private Long valorTotal;
+	
+	@ManyToOne()
+	@JoinColumn(name="id_cliente_fk", referencedColumnName="id_cliente")
+	private Cliente cliente;
+
+	public Factura() {
+	}
+
+	public Factura(int id, String descripcion, String observacion, Date createAt, Long valorTotal) {
+		this.id = id;
+		this.descripcion = descripcion;
+		this.observacion = observacion;
+		this.createAt = createAt;
+		this.valorTotal = valorTotal;
+	}
+	
+	public Factura(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public String getObservacion() {
+		return observacion;
+	}
+
+	public void setObservacion(String observacion) {
+		this.observacion = observacion;
+	}
+
+	public Date getCreateAt() {
+		return createAt;
+	}
+
+	public void setCreateAt(Date createAt) {
+		this.createAt = createAt;
+	}
+
+	public Long getValorTotal() {
+		return valorTotal;
+	}
+
+	public void setValorTotal(Long valorTotal) {
+		this.valorTotal = valorTotal;
+	}
+	
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+}
