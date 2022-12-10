@@ -1,15 +1,15 @@
 package com.unab.app.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
+import org.springframework.stereotype.Service;
 import com.unab.app.dao.IClienteDAO;
 import com.unab.app.interfaces.IClienteService;
 import com.unab.app.models.Cliente;
 
+@Service
 public class ClienteServiceImpl implements IClienteService {
 
 	@Autowired
@@ -24,7 +24,6 @@ public class ClienteServiceImpl implements IClienteService {
 	public Page<Cliente> findAll(Pageable pageable) {
 		return iclienteDao.findAll(pageable);
 	}
-
 	@Override
 	public void save(Cliente cliente) {
 		iclienteDao.save(cliente);
@@ -37,5 +36,4 @@ public class ClienteServiceImpl implements IClienteService {
 	public void delete(Long id) {
 		iclienteDao.deleteById(id);
 	}
-
 }

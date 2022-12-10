@@ -8,7 +8,7 @@ public interface IFacturaService {
 
 	public void save(Factura factura);
 	
-	public void updateFactura(String nombeProducto,Long id);
+	public void updateFactura(String nombreProducto,Long id);
 	
 	public List<Factura> fetchFacturByIdCliente(Long id);
 	

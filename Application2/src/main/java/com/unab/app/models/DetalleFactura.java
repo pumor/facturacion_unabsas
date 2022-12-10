@@ -73,7 +73,5 @@ public class DetalleFactura implements Serializable {
 
 	public void setProducto(Producto producto) {
 		this.producto = producto;
-	}
-	
-		
+	}		
 }
