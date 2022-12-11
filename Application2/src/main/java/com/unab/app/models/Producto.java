@@ -28,7 +28,7 @@ public class Producto implements Serializable {
 	private String nombre;
 	
 	@Column(name="precio")
-	private String precio;
+	private Long precio;
 	
 	@Column(name="create_at")
 	@DateTimeFormat(pattern="yyyy-mm-dd")
@@ -45,11 +45,11 @@ public class Producto implements Serializable {
 		this.id = id;
 	}
 
-	public String getPrecio() {
+	public Long getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(String precio) {
+	public void setPrecio(Long precio) {
 		this.precio = precio;
 	}
 
@@ -60,8 +60,16 @@ public class Producto implements Serializable {
 	public void setCreateAt(String createAt) {
 		this.createAt = createAt;
 	}
+	
+	public String getNombre() {
+		return nombre;
+	}
 
-	public Producto(Long id, String precio, String createAt) {
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Producto(Long id, Long precio, String createAt) {
 		this.id = id;
 		this.precio = precio;
 		this.createAt = createAt;

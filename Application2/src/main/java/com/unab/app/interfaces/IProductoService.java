@@ -8,11 +8,11 @@ import com.unab.app.models.Producto;
 public interface IProductoService {
 	
 	public Producto findByNombre(String nombre);
-	
+
 	public Producto findProductoById(Long id);
 	
 	public void save(Producto producto);
 	
 	public Page<Producto> findAll(Pageable pageable);
-
+	
 }

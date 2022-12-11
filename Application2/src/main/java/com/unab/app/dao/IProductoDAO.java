@@ -10,7 +10,7 @@ import com.unab.app.models.Producto;
 public interface IProductoDAO extends PagingAndSortingRepository<Producto, Long>{
 
 	@Query("select p from Producto p where p.nombre like %?1%")
-	public Producto findByNombre(String nombre);
+	public Producto findProductoById(Long idProducto);
 	
 	public List<Producto> findByNombreLikeIgnoreCase(String nombre);
 }

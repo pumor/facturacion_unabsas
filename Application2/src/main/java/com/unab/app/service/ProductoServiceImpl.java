@@ -15,10 +15,6 @@ public class ProductoServiceImpl implements IProductoService {
 	private IProductoDAO iproductoDao;
 	
 	@Override
-	public Producto findByNombre(String nombre) {
-		return iproductoDao.findByNombre(nombre);
-	}
-	@Override
 	public Producto findProductoById(Long id) {
 		return iproductoDao.findById(id).orElse(new Producto());
 	}
@@ -29,5 +25,9 @@ public class ProductoServiceImpl implements IProductoService {
 	@Override
 	public Page<Producto> findAll(Pageable pageable) {
 		return iproductoDao.findAll(pageable);
+	}
+	@Override
+	public Producto findByNombre(String nombre) {
+		return null;
 	}
 }
