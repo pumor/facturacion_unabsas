@@ -24,19 +24,19 @@ public class FacturaController {
 		facturaService.save(factura);
 		return  factura;
 	}
-	@GetMapping("/listar/(id)")
+	@GetMapping("/listar/{id})")
 	public Factura findFacturaById(@PathVariable("id") Long id) {
 		return facturaService.findFacturaById(id);
 	}
-	@GetMapping("/delete/(id)")
+	@GetMapping("/delete/{id}")
 	public void deleteFactura(@PathVariable("id") Long id) {
 		facturaService.deleteFactura(id);
 	}
-	@GetMapping("/ListwithClient/(id)")
+	@GetMapping("/ListwithClient/{id}")
 	public List<Factura> fetchFacturaByIdCliente(@PathVariable("id") Long id){
 		return facturaService.fetchFacturaByIDCliente(id);
 	}
-	@GetMapping("/update/(idFactura)/(idProducto)")
+	@GetMapping("/update/{idFactura}/{idProducto}")
 	public void updateFactura(@PathVariable("idFactura") Long idFactura, @PathVariable("idProducto") Long idProducto){
 		facturaService.updateFactura(idFactura, idProducto);
 	}

@@ -15,14 +15,14 @@ import com.unab.app.interfaces.IClienteService;
 import com.unab.app.models.Cliente;
 
 @RestController
-@RequestMapping(value="/clientes")
+@RequestMapping(value="/cliente")
 public class ClienteController {
 	
 	@Autowired
 	private IClienteService clienteService;
 	
 	@GetMapping("/listar")
-	public List<Cliente> getClientes(){
+	public List<Cliente> getCliente(){
 		return clienteService.findAll();
 	}
 	@GetMapping("/listarPageable")	
@@ -35,11 +35,11 @@ public class ClienteController {
 		clienteService.save(cliente);
 		return cliente;
 	}
-	@GetMapping("/getCliente/(id)")
+	@GetMapping("/getCliente/{id}")
 	public Cliente findOne(@PathVariable("id") Long id) {
 		return clienteService.findOne(id);
 	}
-	@GetMapping("/delete/(id)")
+	@GetMapping("/delete/{id}")
 	public ResponseEntity<String> deleteCliente(@PathVariable("id") Long id){
 		return clienteService.delete(id);
 	}

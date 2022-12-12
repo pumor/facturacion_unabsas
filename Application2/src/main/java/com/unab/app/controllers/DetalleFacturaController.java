@@ -24,7 +24,8 @@ public class DetalleFacturaController {
 		detalleFacturaService.save(detalleFactura);
 		return detalleFactura;
 	}
-	@GetMapping("/listDetail/(idFactura)/(idProducto)")
+		
+	@GetMapping("/listDetail/{idFactura}/{idProducto}")
 	public List<DetalleFactura> findDetalleFacturaByIdFacturaByIdProducto(@PathVariable("idFactura") Long idFactura, @PathVariable("idProducto") Long idProducto){
 		return detalleFacturaService.findDetalleFacturaByIdFacturaByIdProducto(idFactura, idProducto);
 	}

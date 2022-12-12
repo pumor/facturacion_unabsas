@@ -18,8 +18,8 @@ public class DetalleFactura implements Serializable {
 	private static final long serialVersionUID=1L;
 	
 	@Id
-	@Column(name="id_detalleFactura")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_detalleFactura")
 	private Long id;
 	
 	@Column(name="cantidad")
