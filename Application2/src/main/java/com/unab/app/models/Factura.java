@@ -48,18 +48,6 @@ public class Factura implements Serializable {
 	public Factura() {
 	}
 
-	public Factura(Long id, String descripcion, String observacion, Date createAt, Long valorTotal) {
-		this.id = id;
-		this.descripcion = descripcion;
-		this.observacion = observacion;
-		this.createAt = createAt;
-		this.valorTotal = valorTotal;
-	}
-	
-	public Factura(Cliente cliente) {
-		this.cliente = cliente;
-	}
-	
 	public Long getId() {
 		return id;
 	}
@@ -99,7 +87,7 @@ public class Factura implements Serializable {
 	public void setValorTotal(Long valorTotal) {
 		this.valorTotal = valorTotal;
 	}
-	
+
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -107,5 +95,21 @@ public class Factura implements Serializable {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public Factura(Long id, String descripcion, String observacion, Date createAt, Long valorTotal, Cliente cliente) {
+		super();
+		this.id = id;
+		this.descripcion = descripcion;
+		this.observacion = observacion;
+		this.createAt = createAt;
+		this.valorTotal = valorTotal;
+		this.cliente = cliente;
+	}
+
+
 
 }

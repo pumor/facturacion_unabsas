@@ -15,33 +15,33 @@ import com.unab.app.models.Cliente;
 public class ClienteServiceImpl implements IClienteService {
 
 	@Autowired
-	private IClienteDAO iclienteDao;
+	private IClienteDAO clienteDao;
 	
 	@Override
 	public List<Cliente> findAll() {
-		return (List<Cliente>) iclienteDao.findAll();
+		return (List<Cliente>) clienteDao.findAll();
 	}
 	
 	@Override
 	public Page<Cliente> findAll(Pageable pageable) {
-		return iclienteDao.findAll(pageable);
+		return clienteDao.findAll(pageable);
 	}
 	@Override
 	public void save(Cliente cliente) {
-		iclienteDao.save(cliente);
+		clienteDao.save(cliente);
 	}
 	@Override
 	public Cliente findOne(Long id) {
-		Cliente cliente=iclienteDao.findById(id).orElse(new Cliente());
+		Cliente cliente=clienteDao.findById(id).orElse(new Cliente());
 		cliente.setNombre(cliente.getNombre()+" Julia");
-		iclienteDao.save(cliente);
+		clienteDao.save(cliente);
 		return cliente;
 	}
 	@Override
 	public ResponseEntity<String> delete(Long id){
-		Cliente cliente=iclienteDao.findById(id).orElse(new Cliente());
+		Cliente cliente=clienteDao.findById(id).orElse(new Cliente());
 		if(cliente.getId()!=null && cliente.getId()>0) {
-			iclienteDao.deleteById(id);
+			clienteDao.deleteById(id);
 			return new ResponseEntity<String>("El cliente "+cliente.getNombre()+" fue eliminado con éxito", HttpStatus.OK);
 			
 		}

@@ -12,17 +12,17 @@ import com.unab.app.models.Factura;
 public class DetalleFacturaServiceImpl implements IDetalleFacturaService {
 
 	@Autowired
-	private IDetalleFacturaDAO idetalleFacturaDao;
+	private IDetalleFacturaDAO detalleFacturaDao;
 	
 	@Override
 	public void save(DetalleFactura detalleFactura) {
 		Factura factura=detalleFactura.getFactura();
 		System.out.println(factura.getObservacion());
 		
-		idetalleFacturaDao.save(detalleFactura);
+		detalleFacturaDao.save(detalleFactura);
 	}
 	@Override
 	public List<DetalleFactura> findDetalleFacturaByIdFacturaByIdProducto(Long id_factura, Long id_producto) {
-		return idetalleFacturaDao.findDetalleFacturaByIdFacturaByIdProducto(id_factura, id_producto);
+		return detalleFacturaDao.findDetalleFacturaByIdFacturaByIdProducto(id_factura, id_producto);
 	}
 }

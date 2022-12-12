@@ -17,15 +17,15 @@ import com.unab.app.models.DetalleFactura;
 public class DetalleFacturaController {
 	
 	@Autowired
-	private IDetalleFacturaService idetalleFacturaService;	
+	private IDetalleFacturaService detalleFacturaService;	
 	
 	@PostMapping("/save")
 	public DetalleFactura save(@RequestBody DetalleFactura detalleFactura){
-		idetalleFacturaService.save(detalleFactura);
+		detalleFacturaService.save(detalleFactura);
 		return detalleFactura;
 	}
 	@GetMapping("/listDetail/(idFactura)/(idProducto)")
 	public List<DetalleFactura> findDetalleFacturaByIdFacturaByIdProducto(@PathVariable("idFactura") Long idFactura, @PathVariable("idProducto") Long idProducto){
-		return idetalleFacturaService.findDetalleFacturaByIdFacturaByIdProducto(idFactura, idProducto);
+		return detalleFacturaService.findDetalleFacturaByIdFacturaByIdProducto(idFactura, idProducto);
 	}
 }

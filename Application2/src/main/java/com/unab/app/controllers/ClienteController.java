@@ -19,28 +19,28 @@ import com.unab.app.models.Cliente;
 public class ClienteController {
 	
 	@Autowired
-	private IClienteService iclienteService;
+	private IClienteService clienteService;
 	
 	@GetMapping("/listar")
 	public List<Cliente> getClientes(){
-		return iclienteService.findAll();
+		return clienteService.findAll();
 	}
 	@GetMapping("/listarPageable")	
 	public Page<Cliente> findAll(){
 		Pageable pageable=Pageable.ofSize(15);
-		return iclienteService.findAll(pageable);
+		return clienteService.findAll(pageable);
 	}
 	@PostMapping("/save")
 	public Cliente save(@RequestBody Cliente cliente) {
-		iclienteService.save(cliente);
+		clienteService.save(cliente);
 		return cliente;
 	}
 	@GetMapping("/getCliente/(id)")
 	public Cliente findOne(@PathVariable("id") Long id) {
-		return iclienteService.findOne(id);
+		return clienteService.findOne(id);
 	}
 	@GetMapping("/delete/(id)")
 	public ResponseEntity<String> deleteCliente(@PathVariable("id") Long id){
-		return iclienteService.delete(id);
+		return clienteService.delete(id);
 	}
 }

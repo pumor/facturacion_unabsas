@@ -12,19 +12,19 @@ import com.unab.app.models.Producto;
 public class ProductoServiceImpl implements IProductoService {
 
 	@Autowired
-	private IProductoDAO iproductoDao;
+	private IProductoDAO productoDao;
 	
 	@Override
 	public Producto findProductoById(Long id) {
-		return iproductoDao.findById(id).orElse(new Producto());
+		return productoDao.findById(id).orElse(new Producto());
 	}
 	@Override
 	public void save(Producto producto) {
-		iproductoDao.save(producto);
+		productoDao.save(producto);
 	}
 	@Override
 	public Page<Producto> findAll(Pageable pageable) {
-		return iproductoDao.findAll(pageable);
+		return productoDao.findAll(pageable);
 	}
 	@Override
 	public Producto findByNombre(String nombre) {

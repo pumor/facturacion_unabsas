@@ -19,24 +19,24 @@ import com.unab.app.models.Producto;
 public class ProductoController {
 	
 	@Autowired
-	private IProductoService iproductoService;
+	private IProductoService productoService;
 	
 	@GetMapping("/findByNombre/(nombre)")
 	public Producto findByNombre(@PathVariable("nombre") String nombre) {
-		return iproductoService.findByNombre(nombre);
+		return productoService.findByNombre(nombre);
 	}
 	@GetMapping("/findById/(id)")
 	public Producto findProductoById(@PathVariable("id") Long id) {
-		return iproductoService.findProductoById(id);
+		return productoService.findProductoById(id);
 	}
 	@PostMapping("/save")
 	public Producto findProductoById(@RequestBody Producto producto) {
-		iproductoService.save(producto);
+		productoService.save(producto);
 		return producto;
 	}
 	@GetMapping("/listar")
 	public Page<Producto> findAll(){
 		Pageable pageable=PageRequest.of(1, 15);
-		return iproductoService.findAll(pageable);
+		return productoService.findAll(pageable);
 	}
 }

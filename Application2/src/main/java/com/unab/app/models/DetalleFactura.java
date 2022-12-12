@@ -36,13 +36,6 @@ public class DetalleFactura implements Serializable {
 	public DetalleFactura() {
 	}
 
-	public DetalleFactura(Long id, Integer cantidad, Factura factura, Producto producto) {
-		this.id = id;
-		this.cantidad = cantidad;
-		this.factura = factura;
-		this.producto = producto;
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -73,5 +66,18 @@ public class DetalleFactura implements Serializable {
 
 	public void setProducto(Producto producto) {
 		this.producto = producto;
-	}		
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public DetalleFactura(Long id, Integer cantidad, Factura factura, Producto producto) {
+		super();
+		this.id = id;
+		this.cantidad = cantidad;
+		this.factura = factura;
+		this.producto = producto;
+	}
+		
 }
