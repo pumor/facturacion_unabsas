@@ -34,7 +34,7 @@ public class FacturaController {
 	}
 	@GetMapping("/ListwithClient/(id)")
 	public List<Factura> fetchFacturaByIdCliente(@PathVariable("id") Long id){
-		return facturaService.fetchFacturaByIdCliente(id);
+		return facturaService.fetchFacturaByIDCliente(id);
 	}
 	@GetMapping("/update/(idFactura)/(idProducto)")
 	public void updateFactura(@PathVariable("idFactura") Long idFactura, @PathVariable("idProducto") Long idProducto){

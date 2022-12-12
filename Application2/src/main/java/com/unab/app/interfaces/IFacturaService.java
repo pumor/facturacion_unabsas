@@ -7,13 +7,10 @@ import com.unab.app.models.Factura;
 public interface IFacturaService {
 
 	public void save(Factura factura);
-	
+	public Factura findFacturaById(Long id);
+	public void deleteFactura(Long Id);
+	public List<Factura> fetchFacturaByIDCliente(Long id);
 	public void updateFactura(Long idFactura, Long idProducto);
 	
-	public List<Factura> fetchFacturaByIdCliente(Long id);
-	
-	public Factura findFacturaById(Long id);
-	
-	public void deleteFactura(Long Id);
 	
 }

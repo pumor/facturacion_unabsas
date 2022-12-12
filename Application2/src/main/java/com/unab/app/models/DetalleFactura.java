@@ -26,11 +26,11 @@ public class DetalleFactura implements Serializable {
 	private Integer cantidad;
 	
 	@ManyToOne()
-	@JoinColumn(name="id_factura_fk", referencedColumnName="id_factura")
+	@JoinColumn(name="factura_id_factura", referencedColumnName="id_factura")
 	private Factura factura;
 	
 	@ManyToOne()
-	@JoinColumn(name="id_producto_fk", referencedColumnName="id_producto")
+	@JoinColumn(name="producto_id_producto", referencedColumnName="id_producto")
 	private Producto producto;
 
 	public DetalleFactura() {

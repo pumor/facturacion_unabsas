@@ -42,9 +42,9 @@ public class Factura implements Serializable {
 	private Long valorTotal;
 	
 	@ManyToOne()
-	@JoinColumn(name="id_cliente_fk", referencedColumnName="id_cliente")
+	@JoinColumn(name="cliente_id_cliente", referencedColumnName="id_cliente")
 	private Cliente cliente;
-
+	
 	public Factura() {
 	}
 

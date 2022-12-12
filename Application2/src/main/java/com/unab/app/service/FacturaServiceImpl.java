@@ -59,8 +59,8 @@ public class FacturaServiceImpl implements IFacturaService {
 		facturaDao.save(factura);
 	}
 	@Override
-	public List<Factura> fetchFacturaByIdCliente(Long id) {
-		return facturaDao.fetchFacturaByIdCliente(id);
+	public List<Factura> fetchFacturaByIDCliente(Long id) {
+		return facturaDao.fetchFacturaByIDCliente(id);
 	}
 	@Override
 	public Factura findFacturaById(Long id) {
