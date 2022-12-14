@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.unab.app.interfaces.IProductoService;
 import com.unab.app.models.Producto;
 
@@ -20,23 +19,26 @@ public class ProductoController {
 	
 	@Autowired
 	private IProductoService productoService;
-	
-	@GetMapping("/findByNombre/(nombre)")
+
+	@GetMapping("/findByNombre/{nombre}")
 	public Producto findByNombre(@PathVariable("nombre") String nombre) {
 		return productoService.findByNombre(nombre);
 	}
-	@GetMapping("/findById/(id)")
+
+	@GetMapping("/findById/{id}")
 	public Producto findProductoById(@PathVariable("id") Long id) {
 		return productoService.findProductoById(id);
 	}
+
 	@PostMapping("/save")
 	public Producto findProductoById(@RequestBody Producto producto) {
 		productoService.save(producto);
 		return producto;
 	}
+
 	@GetMapping("/listar")
-	public Page<Producto> findAll(){
-		Pageable pageable=PageRequest.of(1, 15);
+	public Page<Producto> findAll() {
+		Pageable pageable=PageRequest.of(0, 5);
 		return productoService.findAll(pageable);
 	}
 }

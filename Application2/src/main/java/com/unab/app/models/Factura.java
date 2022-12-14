@@ -2,7 +2,6 @@ package com.unab.app.models;
 
 import java.io.Serializable;
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,39 +12,47 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="factura")
+@Table(name = "factura")
 public class Factura implements Serializable {
-	
-	private static final long serialVersionUID=1L;
-	
+
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_factura")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_factura")
 	private Long id;
-	
-	@Column(name="descripcion")
+
+	@Column(name = "descripcion")
 	private String descripcion;
-	
-	@Column(name="observacion")
+
+	@Column(name = "observacion")
 	private String observacion;
-	
-	@Column(name="create_at")
+
 	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="yyyy-mm-dd")
+	@Column(name = "create_at")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createAt;
-	
-	@Column(name="valorTotal")
+
+	@Column(name = "valor_total")
 	private Long valorTotal;
-	
+
 	@ManyToOne()
-	@JoinColumn(name="cliente_id_cliente", referencedColumnName="id_cliente")
+	@JoinColumn(name = "cliente_id_cliente", referencedColumnName = "id_cliente")
 	private Cliente cliente;
-	
+
 	public Factura() {
+	}
+
+	public Factura(Long id, String descripcion, String observacion, Date createAt, Long valorTotal, Cliente cliente) {
+		this.id = id;
+		this.descripcion = descripcion;
+		this.observacion = observacion;
+		this.createAt = createAt;
+		this.valorTotal = valorTotal;
+		this.cliente = cliente;
 	}
 
 	public Long getId() {
@@ -95,21 +102,5 @@ public class Factura implements Serializable {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	public Factura(Long id, String descripcion, String observacion, Date createAt, Long valorTotal, Cliente cliente) {
-		super();
-		this.id = id;
-		this.descripcion = descripcion;
-		this.observacion = observacion;
-		this.createAt = createAt;
-		this.valorTotal = valorTotal;
-		this.cliente = cliente;
-	}
-
-
 
 }

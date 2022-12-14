@@ -14,31 +14,33 @@ import com.unab.app.models.Factura;
 @RestController
 @RequestMapping(value="/factura")
 public class FacturaController {
-	
-	
-	@Autowired 
-	public IFacturaService facturaService;
-		
+	@Autowired
+	private IFacturaService facturaService;
+
 	@PostMapping("/save")
-		public Factura save(@RequestBody Factura factura) {
+	public Factura save(@RequestBody Factura factura) {
 		facturaService.save(factura);
-		return  factura;
+		return factura;
 	}
-	@GetMapping("/listar/{id})")
-	public Factura findFacturaById(@PathVariable("id") Long id) {
+
+	@GetMapping("/listar/{id}")
+	public Factura findFacturById(@PathVariable("id") Long id) {
 		return facturaService.findFacturaById(id);
 	}
+
 	@GetMapping("/delete/{id}")
 	public void deleteFactura(@PathVariable("id") Long id) {
 		facturaService.deleteFactura(id);
 	}
-	@GetMapping("/ListwithClient/{id}")
-	public List<Factura> fetchFacturaByIdCliente(@PathVariable("id") Long id){
+
+	@GetMapping("/listwithClient/{id}")
+	public List<Factura> fetchFacturaByIDCliente(@PathVariable("id") Long id){
 		return facturaService.fetchFacturaByIDCliente(id);
 	}
+
 	@GetMapping("/update/{idFactura}/{idProducto}")
-	public void updateFactura(@PathVariable("idFactura") Long idFactura, @PathVariable("idProducto") Long idProducto){
+	public void updateFactura(@PathVariable("idFactura") Long idFactura, @PathVariable("idProducto") Long idProducto) {
 		facturaService.updateFactura(idFactura, idProducto);
 	}
-}
 
+}
