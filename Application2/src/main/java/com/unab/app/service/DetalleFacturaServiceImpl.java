@@ -9,21 +9,20 @@ import com.unab.app.models.DetalleFactura;
 import com.unab.app.models.Factura;
 
 @Service
-public class DetalleFacturaServiceImpl implements IDetalleFacturaService{
+public class DetalleFacturaServiceImpl implements IDetalleFacturaService {
 
 	@Autowired
 	private IDetalleFacturaDAO detalleFacturaDao;
-
+	
 	@Override
 	public void save(DetalleFactura detalleFactura) {
 		Factura factura=detalleFactura.getFactura();
 		System.out.println(factura.getObservacion());
+		
 		detalleFacturaDao.save(detalleFactura);
 	}
-
 	@Override
 	public List<DetalleFactura> findDetalleFacturaByIdFacturaByIdProducto(Long id_factura, Long id_producto) {
 		return detalleFacturaDao.findDetalleFacturaByIdFacturaByIdProducto(id_factura, id_producto);
 	}
-
 }
